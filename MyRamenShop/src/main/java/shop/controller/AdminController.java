@@ -29,7 +29,7 @@ public class AdminController {
 
 	@Autowired
 	AdminService adminService;
-
+//test
 ////管理者登入介面
 //	@GetMapping("/admin")
 //	public String go() {
