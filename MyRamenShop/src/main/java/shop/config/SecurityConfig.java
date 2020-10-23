@@ -8,26 +8,26 @@ import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import shop.repository.MembershipRepository;
 
-
-
 @Configuration
 public class SecurityConfig {
 
+	@Autowired
+	UserDetailsService demoUserDetailsService;
+
 	@Configuration
 	@Order(2)
-	 static class adminConfig extends WebSecurityConfigurerAdapter {
+	static class adminConfig extends WebSecurityConfigurerAdapter {
 
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
-			http
-			.antMatcher("/admin/**").authorizeRequests().anyRequest().hasRole("admin")
-			.and().formLogin().loginPage("/admin").successForwardUrl("/admin/orderList").permitAll()
-			.and().logout().logoutUrl("/admin/logout").permitAll().logoutSuccessUrl("/admin")
-			.and().csrf().disable();
+			http.antMatcher("/admin/**").authorizeRequests().anyRequest().hasRole("admin").and().formLogin()
+					.loginPage("/admin").successForwardUrl("/admin/orderList").permitAll().and().logout()
+					.logoutUrl("/admin/logout").permitAll().logoutSuccessUrl("/admin").and().csrf().disable();
 
 		}
 
@@ -43,32 +43,22 @@ public class SecurityConfig {
 
 	@Configuration
 	@Order(1)
-	static class memberConfig extends WebSecurityConfigurerAdapter {
-		@Autowired
-		MembershipRepository mbr;
+		class memberConfig extends WebSecurityConfigurerAdapter {
 
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
 
-			http.antMatcher("/member/**").authorizeRequests().anyRequest().hasRole("member")
-			.and().formLogin().loginPage("/member").successForwardUrl("/member/memberCenter").permitAll()
-			.and().logout().logoutUrl("/member/logout").permitAll().logoutSuccessUrl("/member")
-			.and().csrf().disable();
+			http.antMatcher("/member/**").authorizeRequests().anyRequest().hasRole("member").and().formLogin()
+					.loginPage("/member").successForwardUrl("/member/memberCenter").permitAll().and().logout()
+					.logoutUrl("/member/logout").permitAll().logoutSuccessUrl("/member").and().csrf().disable();
 
 		}
 
 		@Override
 		protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-			List<String> username = mbr.findAllusername();
-			List<String> password = mbr.findAllpassword();
-
-			for (int i = 0; i < username.size(); i++) {
-				String un = username.get(i);
-				String ps = password.get(i);
-				auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder()).withUser(un)
-						.password(new BCryptPasswordEncoder().encode(ps)).roles("member");
-				
-			}
+			auth.userDetailsService(demoUserDetailsService);
 		}
+
 	}
+
 }
