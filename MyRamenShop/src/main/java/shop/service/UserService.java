@@ -8,62 +8,62 @@ import org.springframework.stereotype.Service;
 import shop.entity.Bulletin;
 import shop.entity.OrderItem;
 import shop.entity.RamenProduct;
-import shop.repositry.BulletinRepositry;
-import shop.repositry.OrderRepositry;
-import shop.repositry.RamenProductRepositry;
+import shop.repository.BulletinRepository;
+import shop.repository.OrderRepository;
+import shop.repository.RamenProductRepository;
 
 @Service
 public class UserService {
 	@Autowired
-	RamenProductRepositry ramenProductRepositry;
+	RamenProductRepository ramenProductRepository;
 	@Autowired
-	BulletinRepositry bulletinRepositry;
+	BulletinRepository bulletinRepository;
 	@Autowired
-	OrderRepositry orderRepositry;
+	OrderRepository orderRepository;
 //商品
 	public List<RamenProduct> findAllProduct(String type) {
 
-		return ramenProductRepositry.findBytype(type);
+		return ramenProductRepository.findBytype(type);
 	}
 
 	public List<RamenProduct> Best3(String type) {
 
-		return ramenProductRepositry.bestseller(type);
+		return ramenProductRepository.bestseller(type);
 	}
 
 	public RamenProduct findRamenById(Integer id) {
 
-		return ramenProductRepositry.findById(id).get();
+		return ramenProductRepository.findById(id).get();
 	}
 //公告
 	public Bulletin findTop1() {
 
-		return bulletinRepositry.top1();
+		return bulletinRepository.top1();
 	}
 
 	public Bulletin findTop2() {
 
-		return bulletinRepositry.top2();
+		return bulletinRepository.top2();
 	}
 
 	public Bulletin findTop3() {
 
-		return bulletinRepositry.top3();
+		return bulletinRepository.top3();
 	}
 
 	public List<Bulletin> findNews() {
 
-		return bulletinRepositry.findAll();
+		return bulletinRepository.findAll();
 	}
 
 	public Bulletin findNewById(Integer id) {
 
-		return bulletinRepositry.findById(id).get();
+		return bulletinRepository.findById(id).get();
 	}
 //完成訂單
 	public void giveOrder(OrderItem orderItem) {
 		
-		orderRepositry.save(orderItem);
+		orderRepository.save(orderItem);
 	}
 
 }

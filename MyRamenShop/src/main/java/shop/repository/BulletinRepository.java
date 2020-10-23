@@ -1,4 +1,4 @@
-package shop.repositry;
+package shop.repository;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.Query;
 import shop.entity.Bulletin;
 
 @Transactional
-public interface BulletinRepositry extends JpaRepository<Bulletin, Integer> {
+public interface BulletinRepository extends JpaRepository<Bulletin, Integer> {
 	@Query(value = "update display_product set title=?1 ,message=?2 where id=?3 ", nativeQuery = true)
 	@Modifying
 	public void updateBulletin(String title, String message, int id);

@@ -1,20 +1,29 @@
 package shop.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import shop.entity.Membership;
+import shop.repository.MembershipRepository;
+
 @Service
 public class MyUserDetailsServiceImpl implements UserDetailsService {
-
+	@Autowired
+    MembershipRepository membershipRepository;
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
-		UserDetails userDetails = User.builder().username("user123").password("{noop}user123") // 密碼前面加上"{noop}"使用NoOpPasswordEncoder，也就是不對密碼進行任何格式的編碼。
-				.roles("USER").build();
-
+		Membership membership = membershipRepository.findByUsername(username);
+		  if (membership == null) {
+	            throw new UsernameNotFoundException(username + " not found");
+	        }
+		  UserDetails userDetails = User.builder()
+	                .username(membership.getUsername())
+	                .password("{noop}" + membership.getPassword())
+	                .roles("User").build();
 		return userDetails;
 	}
 

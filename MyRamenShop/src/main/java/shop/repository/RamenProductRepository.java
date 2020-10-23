@@ -1,4 +1,4 @@
-package shop.repositry;
+package shop.repository;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.Query;
 import shop.entity.RamenProduct;
 
 @Transactional
-public interface RamenProductRepositry extends JpaRepository<RamenProduct, Integer> {
+public interface RamenProductRepository extends JpaRepository<RamenProduct, Integer> {
 	@Query(value = "select*from ramen_product where type=?1 order by sales  desc limit 0, 3", nativeQuery = true)
 	List<RamenProduct> bestseller(String type);
 

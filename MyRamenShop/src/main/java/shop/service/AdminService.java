@@ -15,54 +15,54 @@ import shop.entity.Bulletin;
 import shop.entity.Membership;
 import shop.entity.OrderItem;
 import shop.entity.RamenProduct;
-import shop.repositry.BulletinRepositry;
-import shop.repositry.MembershipRepositry;
-import shop.repositry.OrderRepositry;
-import shop.repositry.RamenProductRepositry;
+import shop.repository.BulletinRepository;
+import shop.repository.MembershipRepository;
+import shop.repository.OrderRepository;
+import shop.repository.RamenProductRepository;
 
 @Service
 public class AdminService {
 
 	@Autowired
-	RamenProductRepositry ramenProductRepositry;
+	RamenProductRepository ramenProductRepository;
 	@Autowired
-	OrderRepositry orderRepositry;
+	OrderRepository orderRepository;
 	@Autowired
-	MembershipRepositry membershipRepositry;
+	MembershipRepository membershipRepository;
 	@Autowired
-	BulletinRepositry bulletinRepositry;
+	BulletinRepository bulletinRepository;
 
 //公告
 	public List<Bulletin> findAllBulletin() {
 
-		return bulletinRepositry.findAll();
+		return bulletinRepository.findAll();
 
 	}
 
 	public void addNewBulletin(Bulletin bulletin) {
 
-		bulletinRepositry.save(bulletin);
+		bulletinRepository.save(bulletin);
 	}
 
 	public Bulletin editBulletin(Integer id) {
 
-		return bulletinRepositry.findById(id).get();
+		return bulletinRepository.findById(id).get();
 	}
 
 	public void doEditBulletin(Bulletin bulletin, Integer id) {
 
-		bulletinRepositry.updateBulletin(bulletin.getTitle(), bulletin.getMessage(), id);
+		bulletinRepository.updateBulletin(bulletin.getTitle(), bulletin.getMessage(), id);
 
 	}
 
 	public void deleteBulletinById(Integer id) {
-		bulletinRepositry.deleteById(id);
+		bulletinRepository.deleteById(id);
 	}
 
 //品項
 	public List<RamenProduct> findAllRamenProduct() {
 
-		return ramenProductRepositry.findAll();
+		return ramenProductRepository.findAll();
 	}
 
 	public String addNewProduct(RamenProduct ramenProduct, MultipartFile file) {
@@ -86,60 +86,60 @@ public class AdminService {
 
 		ramenProduct.setPcName(fileName);
 		ramenProduct.setCount(0);
-		ramenProductRepositry.save(ramenProduct);
+		ramenProductRepository.save(ramenProduct);
 
 		return fileName;
 	}
 
 	public RamenProduct editProduct (Integer id) {
 	
-		return ramenProductRepositry.findById(id).get();
+		return ramenProductRepository.findById(id).get();
 	}
 	public void updateProduct(RamenProduct ramenProduct,Integer id) {
 		
-		ramenProductRepositry.updateRamen(ramenProduct.getTitle(), ramenProduct.getPrice(), ramenProduct.getType(), id);
+		ramenProductRepository.updateRamen(ramenProduct.getTitle(), ramenProduct.getPrice(), ramenProduct.getType(), id);
 	
 	}
 	public void deleteProductById(Integer id) {
-		ramenProductRepositry.deleteById(id);
+		ramenProductRepository.deleteById(id);
 	}
 //訂單
 	public List<OrderItem> findAllOrder () {
 		
-		return orderRepositry.findAll();
+		return orderRepository.findAll();
 		
 	}
 	public void finishOrder(Integer id) {
 		
-		String[] ss = orderRepositry.getOne(id).getOrderlist().split(",");
+		String[] ss = orderRepository.getOne(id).getOrderlist().split(",");
 		Map<String, String> map = new HashMap<String, String>();
 		for (int i = 0; i < ss.length; i++) {
 			map.put(ss[i].split(":")[0], ss[i].split(":")[1]);
 		}
 
-		for (int i = 0; i < ramenProductRepositry.findAll().size(); i++) {
-			String title = ramenProductRepositry.findAll().get(i).getTitle();
+		for (int i = 0; i < ramenProductRepository.findAll().size(); i++) {
+			String title = ramenProductRepository.findAll().get(i).getTitle();
 
 			if (map.containsKey(title)) {
 				int a = Integer.parseInt(map.get(title));
-				int cnt = ramenProductRepositry.findByTitle(title).get().getCount();
+				int cnt = ramenProductRepository.findByTitle(title).get().getCount();
 				cnt = cnt + a;
-				ramenProductRepositry.updateOneByName(cnt, title);
+				ramenProductRepository.updateOneByName(cnt, title);
 
 			}
 
 		}
-		orderRepositry.deleteById(id);
+		orderRepository.deleteById(id);
 	}
 //會員管理
 	public List<Membership> findAllMember(){
 		
 		
-		return membershipRepositry.findAll();
+		return membershipRepository.findAll();
 	}
 	public void deleteMemberById(Integer id) {
 		
-		membershipRepositry.deleteById(id);
+		membershipRepository.deleteById(id);
 		
 	}
 }

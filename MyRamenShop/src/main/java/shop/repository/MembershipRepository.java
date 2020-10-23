@@ -1,4 +1,4 @@
-package shop.repositry;
+package shop.repository;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import shop.entity.Membership;
 
-public interface MembershipRepositry extends JpaRepository<Membership, Integer> {
+public interface MembershipRepository extends JpaRepository<Membership, Integer> {
 	public Membership findByUsernameAndPassword(String username, String password);
 
 	public Membership findByUsername(String username);

@@ -11,25 +11,25 @@ import org.springframework.stereotype.Service;
 
 import shop.entity.Membership;
 import shop.entity.OrderItem;
-import shop.repositry.MembershipRepositry;
-import shop.repositry.OrderRepositry;
+import shop.repository.MembershipRepository;
+import shop.repository.OrderRepository;
 
 @Service
 public class MemberService {
 	@Autowired
-	MembershipRepositry membershipRepositry;
+	MembershipRepository membershipRepository;
 	@Autowired
-	OrderRepositry orderRepositry;
+	OrderRepository orderRepository;
 
 	public void saveMemberData(Membership membership) {
 
-		membershipRepositry.save(membership);
+		membershipRepository.save(membership);
 	}
 
 	public List<OrderItem> findMemberOrder() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String currentPrincipalName = authentication.getName();
-		List<OrderItem> memberOrderList = orderRepositry.findByUsername(currentPrincipalName);
+		List<OrderItem> memberOrderList = orderRepository.findByUsername(currentPrincipalName);
 
 		return memberOrderList;
 	}
@@ -38,11 +38,11 @@ public class MemberService {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String currentPrincipalName = authentication.getName();
 
-		return membershipRepositry.findByUsername(currentPrincipalName);
+		return membershipRepository.findByUsername(currentPrincipalName);
 	}
 
 	public void deleteOrder(Integer id) {
-		orderRepositry.deleteById(id);
+		orderRepository.deleteById(id);
 	}
 
 }

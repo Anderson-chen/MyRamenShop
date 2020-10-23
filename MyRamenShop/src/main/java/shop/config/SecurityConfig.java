@@ -10,7 +10,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import shop.repositry.MembershipRepositry;
+import shop.repository.MembershipRepository;
 
 
 
@@ -45,7 +45,7 @@ public class SecurityConfig {
 	@Order(1)
 	static class memberConfig extends WebSecurityConfigurerAdapter {
 		@Autowired
-		MembershipRepositry mbr;
+		MembershipRepository mbr;
 
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
