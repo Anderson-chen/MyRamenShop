@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		 <link rel="icon" href="/static/favicon.ico">
+		
+		<title>Dashboard Template for Bootstrap</title>
+		<!-- Bootstrap core CSS -->
+		<link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="/assets/css/dashboard.css" rel="stylesheet">
+		<style type="text/css">
+			/* Chart.js */
+			
+			@-webkit-keyframes chartjs-render-animation {
+				from {
+					opacity: 0.99
+				}
+				to {
+					opacity: 1
+				}
+			}
+			
+			@keyframes chartjs-render-animation {
+				from {
+					opacity: 0.99
+				}
+				to {
+					opacity: 1
+				}
+			}
+			
+			.chartjs-render-monitor {
+				-webkit-animation: chartjs-render-animation 0.001s;
+				animation: chartjs-render-animation 0.001s;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div th:replace="commons/bar::topbarAdmin"></div>
+
+		<div class="container-fluid">
+			<div class="row">
+				<div th:replace="commons/bar::#sidebar(activeUri='bulletin')"></div>
+
+				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+			<form th:action="@{/admin/bulletinNew}" method="post" >
+			<input type="hidden" name="_method" value="put" th:if="${b!=null}"/>
+			<input type="hidden" name="id"  th:value="${b.id}" th:if="${b!=null}"/>
+			
+				
+				
+                <div class="form-group">
+                    <label>標題</label>
+                    <input name="title" type="text" class="form-control" placeholder="" th:value="${b!=null}?${b.title}">
+                    
+                </div>
+                
+                <div class="form-group">
+                    <label>訊息</label>
+                    <input  name="message" type="text" class="form-control" placeholder="" th:value="${b!=null}?${b.message}">
+                </div>
+             
+            
+		
+                
+                
+                
+                
+                <button type="submit" class="btn btn-primary" th:text="${b!=null}?'修改':'發布'">添加</button>
+            </form>
+				
+			
+			</main>
+			</div>
+			</div>
+			
+			

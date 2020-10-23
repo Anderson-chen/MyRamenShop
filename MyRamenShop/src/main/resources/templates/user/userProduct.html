@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/static/favicon.ico">
+
+    <title>Product example for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/assets/css/product.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div th:replace="commons/bar::#indexbar"></div>
+
+
+      
+   
+
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+      <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+        <div class="my-3 py-3">
+          <h2 class="display-5" th:text = "豚骨拉麵" >Another headline</h2>
+       	<form action="/TastePick">
+       	  <input type="hidden" name="type" value="1"></input>
+       	  <button>
+          <img th:src="@{Index/豚骨拉麵.jpg}" alt="err" style="width:600px;height:450px;">
+        	</button>
+        </form>
+        </div>
+        
+      </div>
+      <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+        <div class="my-3 p-3">
+           <h2 class="display-5" th:text = "雞白湯拉麵" >Another headline</h2>  
+           <form action="/TastePick">
+           <input type="hidden" name="type" value="2"></input>
+       	  <button>
+          <img th:src= "@{Index/雞白湯拉麵.jpg}" alt="err" style="width:600px;height:450px;">         
+        	</button>
+        </form>
+        </div>
+      
+      </div>
+    </div>
+
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+      <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+        <div class="my-3 p-3">
+          <h2 class="display-5" th:text = "醬油拉麵" >Another headline</h2>
+          
+          <img th:src= "@{Index/醬油拉麵.jpg}" alt="err" style="width:600px;height:450px;">
+          
+        </div>
+       
+      </div>
+      <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+        <div class="my-3 py-3">
+          <h2 class="display-5" th:text = "塩味拉麵" >Another headline</h2>
+         
+          <img th:src= "@{Index/塩味拉麵.jpg}" alt="err" style="width:600px;height:450px;">
+   
+        </div>
+      
+      </div>
+    </div>
+
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+      <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+        <div class="my-3 p-3">
+           <h2 class="display-5" th:text = "點心" >Another headline</h2>
+          <img th:src= "@{Index/點心.jpg}" alt="err" style="width:600px;height:450px;">
+          
+        </div>
+      
+      </div>
+      <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+        <div class="my-3 py-3">
+           <h2 class="display-5" th:text = "飲料" >Another headline</h2>
+          <img th:src= "@{Index/飲料.jpg}" alt="err" style="width:600px;height:450px;">
+        </div>
+        
+      </div>
+    </div>
+
+    
+          
+      
+   
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../../../assets/js/bootstrap.min.js"></script>
+    <script src="../../../../assets/js/vendor/holder.min.js"></script>
+    <script>
+      Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+      });
+    </script>
+  </body>
+</html>

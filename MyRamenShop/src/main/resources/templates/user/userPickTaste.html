@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+     <link rel="icon" href="/static/favicon.ico">
+
+    <title>Carousel Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    
+    <link href="/assets/css/carousel.css" rel="stylesheet">
+  </head>
+  <body>
+  
+   
+     
+     <div th:replace="commons/bar::#indexbar"></div>
+     
+     
+     
+      <hr class="featurette-divider">
+   <div  style="text-align:center">
+   <h1>熱門TOP3</h1>
+   </div>
+   
+    <main role="main">
+    
+
+
+
+      <!-- Marketing messaging and featurettes
+      ================================================== -->
+      <!-- Wrap the rest of the page in another container to center all the content. -->
+
+      <div class="container marketing">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+          <div class="col-lg-4" th:each="a:${Best3}">
+            <img class="rounded-circle" th:src="'/Ramen_pc/'+${a.PcName}" alt="Generic placeholder image" width="350" height="350">
+          
+            <h2 th:text="${a.title}">Heading</h2>
+            <p th:text="${a.price}"></p>
+            <a class="btn btn-secondary" th:href="'/PickRamen/'+${a.id}" role="button">購買 &raquo;</a>
+          </div><!-- /.col-lg-4 -->
+         
+       
+        </div><!-- /.row -->
+
+
+        <!-- START THE FEATURETTES -->
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette" th:each="b:${ALL}">
+          <div class="col-md-7" >
+            <h2 class="featurette-heading" th:text="${b.title}"></h2>
+            <p class="lead" th:text="${b.price} + '元'" ></p>
+             <a class="btn btn-secondary" th:href="'/PickRamen/'+${b.id}" role="button">購買 &raquo;</a>
+          </div>
+          <div class="col-md-5">
+            <img class="featurette-image img-fluid mx-auto" th:src="'/Ramen_pc/'+${b.PcName}" alt="Generic placeholder image" width="1200" height="1200">
+          </div>
+             <hr class="featurette-divider" width="2000">
+             
+        </div>
+
+    
+
+     
+          
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- /END THE FEATURETTES -->
+
+      </div><!-- /.container -->
+
+
+      <!-- FOOTER -->
+      <footer class="container">
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2017-2018 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+    </main>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="/assets/js/vendor/popper.min.js"></script>
+    <script src="/assets/dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="/assets/js/vendor/holder.min.js"></script>
+  </body>
+</html>

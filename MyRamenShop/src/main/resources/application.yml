@@ -1,0 +1,38 @@
+#管理者帳密
+#admin:
+#  username: admin
+#  passowrd: 123456
+#  age: 15
+ #資料庫配置
+spring:
+    datasource:
+     username: root
+     password: root
+     url: jdbc:mysql://192.168.0.15:3306/ramen?characterEncoding=utf8&useSSL=true&serverTimezone=GMT%2B8
+     driver-class-name: com.mysql.cj.jdbc.Driver
+     initialization-mode: always
+     schema:
+#      - classpath:sql/employee.sql
+#      - classpath:sql/department.sql
+    jpa:
+      hibernate:
+       ddl-auto: update
+      show-sql: true
+    jackson:
+      date-format: yyyy-MM-dd HH:mm:ss
+    mvc:
+     format:
+        date: yyyy-MM-dd HH:mm:ss
+     hiddenmethod:
+        filter:
+          enabled: true
+ 
+
+   
+        
+            
+        
+                          
+     
+
+  
