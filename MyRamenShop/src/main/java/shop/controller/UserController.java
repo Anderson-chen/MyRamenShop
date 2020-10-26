@@ -178,5 +178,9 @@ public class UserController {
 		return "user/userComfirm";
 
 	}
+	@GetMapping("/refresh")
+	public String refresh() {
+		return"user/userComfirmRefresh";
+	}
 
 }
