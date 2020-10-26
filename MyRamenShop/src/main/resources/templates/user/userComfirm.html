@@ -52,7 +52,7 @@
             <li class="list-group-item d-flex justify-content-between">
              
               <span >總共 </span>
-              <strong>NT$[[${session.ss}]]</strong>
+              <strong id ="total">NT$[[${session.ss}]]</strong>
             </li>
           </ul>
 
@@ -62,7 +62,7 @@
           
             
               <input th:each="cartitem:${session.cart}" type="hidden" name="orderlist" th:value="${cartitem['value'].product.title}+':'+${cartitem['value'].num}">                       
-			  <input type="hidden" name="total" th:value="${session.ss}">
+			  <input type="hidden" id ="finaltotal" name="total" th:value="${session.ss}">
       <div class="row">
        
         <div class="col-md-8 order-md-1">
@@ -194,16 +194,22 @@
     <script type = "text/javascript" th:inline="javascript">
     /*<![CDATA[*/
     var basePath = /*[[${#httpServletRequest.getScheme() + "://" + #httpServletRequest.getServerName() + ":" + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()}]]*/;
-   
+    var  procode =  document.getElementById("procode").value;
 
     $('#button').bind('click', function () {
             refresh();
         });
    
     function refresh() {
-    	var  procode =  document.getElementById("procode").value;
+    	if (procode==[[${message}]])
+    		{  document.getElementById("total").innerHTML = [[session.ss]]-50
+    		
+    		document.getElementById("finaltotal").value =  document.getElementById("total").value
+    		}
+    	
+    	
         $.ajax({
-            url: basePath + '/refresh',
+            url: basePath + '/verify?message='+procode,
             type: 'get',
             dataType: 'text',
             data: {

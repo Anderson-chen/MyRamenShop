@@ -1,5 +1,6 @@
 package shop.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -7,12 +8,15 @@ import javax.servlet.http.HttpSession;
 import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import shop.CartUtil;
 import shop.entity.Bulletin;
@@ -27,6 +31,10 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
+	
+	 @Value("${procode}")
+	String procode;
+	
 
 //首頁
 	@GetMapping("/")
@@ -140,10 +148,11 @@ public class UserController {
 
 		return "redirect:/goCart";
 	}
-
+//確認訂單
 	@GetMapping("/goComfirm")
 	public String goComfirm(HttpSession session, Map<String, Boolean> map) {
-
+		
+		
 		if (session.getAttribute("membership") != null) {
 			map.put("test", true);
 
@@ -178,11 +187,19 @@ public class UserController {
 		return "user/userComfirm";
 
 	}
-	@GetMapping("/refresh")
-	public String refresh() {
-		
 	
-		return"user/userComfirmRefresh";
+	@GetMapping("/verify")
+	@ResponseBody
+	public Map<String,String> refresh(@RequestBody Map<String,String> procodeMap) {
+		String messsage = "";
+		Map<String,String> jsonMap = new HashMap<String, String>();
+		if(procode.equals(procodeMap.get("procode")))
+		{
+			 jsonMap.put("message", "valid");
+		}else {
+			 jsonMap.put("message", "invalid");
+		}
+		return jsonMap;
 	}
 
 }

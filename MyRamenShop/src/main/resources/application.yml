@@ -1,8 +1,9 @@
 #管理者帳密
-#admin:
+admin:
 #  username: admin
 #  passowrd: 123456
 #  age: 15
+   procode: 123
  #資料庫配置
 spring:
     datasource:
