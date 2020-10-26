@@ -43,7 +43,7 @@
             <li id="child_view" class="list-group-item d-flex justify-content-between bg-light">
               <div class="text-success" >                                   
                 <button id="button" th:text = "確定"></button>                    
-                <input type="text" name="procode" placeholder="輸入優惠碼">
+                <input type="text" id="procode" name="procode" placeholder="輸入優惠碼">
                
                 
               </div>
@@ -194,13 +194,14 @@
     <script type = "text/javascript" th:inline="javascript">
     /*<![CDATA[*/
     var basePath = /*[[${#httpServletRequest.getScheme() + "://" + #httpServletRequest.getServerName() + ":" + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()}]]*/;
-
+   
 
     $('#button').bind('click', function () {
             refresh();
         });
    
     function refresh() {
+    	var  procode =  document.getElementById("procode").value;
         $.ajax({
             url: basePath + '/refresh',
             type: 'get',
@@ -213,6 +214,8 @@
             success: function (data) {
                  $("#child_view").empty();
                  $("#child_view").append(data);
+                 alert(procode);
+                 
             }
         });
     }
