@@ -188,9 +188,9 @@ public class UserController {
 
 	}
 	
-	@GetMapping("/verify")
+	@PostMapping("/verify")
 	@ResponseBody
-	public Map<String,String> refresh(@RequestBody Map<String,String> procodeMap) {
+	public Map<String,String> verify(@RequestBody Map<String,String> procodeMap) {
 		String messsage = "";
 		Map<String,String> jsonMap = new HashMap<String, String>();
 		if(procode.equals(procodeMap.get("procode")))

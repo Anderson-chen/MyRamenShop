@@ -51,6 +51,8 @@ public class OrderItem {
 	private Integer cvv;
 	//訂單內容
 	@Column
+	private String procode;
+	@Column
 	private Integer total;
 	@Column
 	private String orderlist;
@@ -182,6 +184,14 @@ public class OrderItem {
 
 	public void setCardnumber(Integer cardnumber) {
 		this.cardnumber = cardnumber;
+	}
+
+	public String getProcode() {
+		return procode;
+	}
+
+	public void setProcode(String procode) {
+		this.procode = procode;
 	}
 
 }
