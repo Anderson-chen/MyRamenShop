@@ -221,6 +221,8 @@
             		document.getElementById("total").innerHTML =  distotal
             		document.getElementById("finaltotal").value = Math.round([[${session.ss}]]*0.9)
             		document.getElementById("goDiscount").value = "10%off"
+            		$("#child_view").empty();
+                    $("#child_view").append(data);
             		alert("9折優惠")
             		
             	}else if(data.message=='20%off'){
@@ -228,13 +230,14 @@
             		document.getElementById("total").innerHTML =  distotal
             		document.getElementById("finaltotal").value = Math.round([[${session.ss}]]*0.8)
             		document.getElementById("goDiscount").value = "20%off"
+            		 $("#child_view").empty();
+                    $("#child_view").append(data);
             		alert("8折優惠")
             		
             	}else{
             		alert("優惠碼錯誤")
             	}
-              //   $("#child_view").empty();
-              //  $("#child_view").append(data);
+              
                 
                  
             }
