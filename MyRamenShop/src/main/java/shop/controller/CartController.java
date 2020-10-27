@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import shop.entity.RamenProduct;
 import shop.service.CartService;
 import shop.service.ProductService;
-
+@Controller
 public class CartController {
 	
 	
