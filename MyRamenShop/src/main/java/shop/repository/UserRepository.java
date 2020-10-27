@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import shop.entity.Membership;
 
-public interface MembershipRepository extends JpaRepository<Membership, Integer> {
+public interface UserRepository extends JpaRepository<Membership, Integer> {
 	public Membership findByUsernameAndPassword(String username, String password);
 
 	public Membership findByUsername(String username);

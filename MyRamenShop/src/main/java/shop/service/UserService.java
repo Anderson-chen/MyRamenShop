@@ -22,10 +22,5 @@ public class UserService {
 	OrderRepository orderRepository;
 	
 
-//完成訂單
-	public void giveOrder(OrderItem orderItem) {
-		
-		orderRepository.save(orderItem);
-	}
 
 }

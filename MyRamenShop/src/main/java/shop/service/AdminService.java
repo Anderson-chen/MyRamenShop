@@ -16,7 +16,7 @@ import shop.entity.Membership;
 import shop.entity.OrderItem;
 import shop.entity.RamenProduct;
 import shop.repository.BulletinRepository;
-import shop.repository.MembershipRepository;
+import shop.repository.UserRepository;
 import shop.repository.OrderRepository;
 import shop.repository.RamenProductRepository;
 
@@ -28,7 +28,7 @@ public class AdminService {
 	@Autowired
 	OrderRepository orderRepository;
 	@Autowired
-	MembershipRepository membershipRepository;
+	UserRepository userRepository;
 	@Autowired
 	BulletinRepository bulletinRepository;
 
@@ -135,11 +135,11 @@ public class AdminService {
 	public List<Membership> findAllMember(){
 		
 		
-		return membershipRepository.findAll();
+		return userRepository.findAll();
 	}
 	public void deleteMemberById(Integer id) {
 		
-		membershipRepository.deleteById(id);
+		userRepository.deleteById(id);
 		
 	}
 }

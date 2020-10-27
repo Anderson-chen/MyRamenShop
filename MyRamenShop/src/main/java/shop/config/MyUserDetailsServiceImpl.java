@@ -8,15 +8,15 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import shop.entity.Membership;
-import shop.repository.MembershipRepository;
+import shop.repository.UserRepository;
 
 @Service
 public class MyUserDetailsServiceImpl implements UserDetailsService {
 	@Autowired
-    MembershipRepository membershipRepository;
+    UserRepository userRepository;
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Membership membership = membershipRepository.findByUsername(username);
+		Membership membership = userRepository.findByUsername(username);
 		  if (membership == null) {
 	            throw new UsernameNotFoundException(username + " not found");
 	        }
