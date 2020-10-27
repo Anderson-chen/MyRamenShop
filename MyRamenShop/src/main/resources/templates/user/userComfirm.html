@@ -216,15 +216,22 @@
             async: true,
             success: function (data) {
             	
-            	if(data.message=='valid'){
+            	if(data.message=='10%off'){
             		var distotal = "NT$"+[[${session.ss}]]*0.9;
             		document.getElementById("total").innerHTML =  distotal
             		document.getElementById("finaltotal").value = [[${session.ss}]]*0.9
-            		document.getElementById("goDiscount").value = "yes"
-            		alert("成功")
+            		document.getElementById("goDiscount").value = "10%off"
+            		alert("9折優惠")
+            		
+            	}else if(data.message=='20%off'){
+            		var distotal = "NT$"+[[${session.ss}]]*0.8;
+            		document.getElementById("total").innerHTML =  distotal
+            		document.getElementById("finaltotal").value = [[${session.ss}]]*0.8
+            		document.getElementById("goDiscount").value = "20%off"
+            		alert("8折優惠")
             		
             	}else{
-            		alert("驗證失敗")
+            		alert("優惠碼錯誤")
             	}
               //   $("#child_view").empty();
               //  $("#child_view").append(data);

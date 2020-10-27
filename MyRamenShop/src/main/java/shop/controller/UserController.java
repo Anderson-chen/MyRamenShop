@@ -32,9 +32,10 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	 @Value("${procode}")
-	String procode;
-	
+	 @Value("${procode1}")
+	String procode1;
+	 @Value("${procode2}")
+		String procode2;
 
 //首頁
 	@GetMapping("/")
@@ -193,11 +194,13 @@ public class UserController {
 	public Map<String,String> verify(@RequestBody Map<String,String> procodeMap) {
 		String messsage = "";
 		Map<String,String> jsonMap = new HashMap<String, String>();
-		if(procode.equals(procodeMap.get("procode")))
+		if(procode1.equals(procodeMap.get("procode")))
 		{
-			 jsonMap.put("message", "valid");
-		}else {
-			 jsonMap.put("message", "invalid");
+			jsonMap.put("message", "10%off");
+		}else if (procode2.equals(procodeMap.get("procode"))) {
+			jsonMap.put("message", "20%off");
+		}else{
+			 jsonMap.put("message", "err");
 		}
 		return jsonMap;
 	}
