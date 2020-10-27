@@ -217,16 +217,16 @@
             success: function (data) {
             	
             	if(data.message=='10%off'){
-            		var distotal = "NT$"+Math.round([[${session.ss}]]*0.9)
+            		var distotal = "NT$"+[[${session.ss}]]*0.9;
             		document.getElementById("total").innerHTML =  distotal
-            		document.getElementById("finaltotal").value = Math.round([[${session.ss}]]*0.9)
+            		document.getElementById("finaltotal").value = [[${session.ss}]]*0.9
             		document.getElementById("goDiscount").value = "10%off"
             		alert("9折優惠")
             		
             	}else if(data.message=='20%off'){
-            		var distotal = "NT$"+Math.round([[${session.ss}]]*0.8);
+            		var distotal = "NT$"+[[${session.ss}]]*0.8;
             		document.getElementById("total").innerHTML =  distotal
-            		document.getElementById("finaltotal").value = Math.round([[${session.ss}]]*0.8)
+            		document.getElementById("finaltotal").value = [[${session.ss}]]*0.8
             		document.getElementById("goDiscount").value = "20%off"
             		alert("8折優惠")
             		
