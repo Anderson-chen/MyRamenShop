@@ -23,7 +23,7 @@ import shop.entity.Bulletin;
 
 import shop.entity.OrderItem;
 import shop.entity.RamenProduct;
-
+import shop.service.ProductService;
 import shop.service.UserService;
 
 @Controller
@@ -31,50 +31,14 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
-	
+	@Autowired 
+	ProductService productService;
 	 @Value("${procode1}")
 	String procode1;
 	 @Value("${procode2}")
 		String procode2;
 
-//首頁
-	@GetMapping("/")
-	public String index(HttpSession session) {
-		if (session.getAttribute("loginUser") != null) {
-			return "user/userProduct";
-		} else {
-			session.setAttribute("loginUser", "");
 
-			return "user/userProduct";
-		}
-	}
-
-//點擊商品展示
-	@GetMapping("/TastePick")
-	public String show(Model model, @PathParam("type") String type
-
-	) {
-
-//top3
-		List<RamenProduct> best = userService.Best3(type);
-//列出全部
-		List<RamenProduct> ALL = userService.findAllProduct(type);
-
-		model.addAttribute("Best3", best);
-		model.addAttribute("ALL", ALL);
-
-		return "user/userPickTaste";
-	}
-
-	@GetMapping("/PickRamen/{id}")
-	public String show1(Model model, @PathVariable("id") Integer id) {
-
-		RamenProduct ramenProduct = userService.findRamenById(id);
-
-		model.addAttribute("ALL", ramenProduct);
-
-		return "user/userPickRamen";
-	}
 
 //公告
 	@GetMapping("goBulletin")
@@ -116,7 +80,7 @@ public class UserController {
 	@GetMapping("/goCart/{id}")
 	public String goCart(@PathVariable Integer id, @PathParam("num") int num, HttpSession session) {
 
-		RamenProduct product = userService.findRamenById(id);
+		RamenProduct product = productService.findRamenById(id);
 		int sum = CartUtil.opitem(product.getPrice(), num);
 		CartUtil.saveProductToCart(session, product, num, sum);
 
@@ -127,7 +91,7 @@ public class UserController {
 //
 	@PostMapping("/goCartDelete/{id}")
 	public String Delete(HttpSession session, @PathVariable int id) {
-		RamenProduct product = userService.findRamenById(id);
+		RamenProduct product = productService.findRamenById(id);
 		CartUtil.deleteProductFromCart(session, product.getId());
 		return "redirect:/goCart";
 	}
@@ -144,7 +108,7 @@ public class UserController {
 	public String updateItem(HttpSession session, @PathParam("total") Integer total, @PathParam("sum") Integer sum,
 			@PathParam("num") Integer num, @PathVariable Integer id) {
 
-		RamenProduct product = userService.findRamenById(id);
+		RamenProduct product = productService.findRamenById(id);
 		CartUtil.updateItem(session, product, num, sum);
 
 		return "redirect:/goCart";

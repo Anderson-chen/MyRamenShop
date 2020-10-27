@@ -20,21 +20,7 @@ public class UserService {
 	BulletinRepository bulletinRepository;
 	@Autowired
 	OrderRepository orderRepository;
-//商品
-	public List<RamenProduct> findAllProduct(String type) {
-
-		return ramenProductRepository.findBytype(type);
-	}
-
-	public List<RamenProduct> Best3(String type) {
-
-		return ramenProductRepository.bestseller(type);
-	}
-
-	public RamenProduct findRamenById(Integer id) {
-
-		return ramenProductRepository.findById(id).get();
-	}
+	
 //公告
 	public Bulletin findTop1() {
 
