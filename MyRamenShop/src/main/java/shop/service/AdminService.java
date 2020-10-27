@@ -33,31 +33,7 @@ public class AdminService {
 	BulletinRepository bulletinRepository;
 
 //公告
-	public List<Bulletin> findAllBulletin() {
-
-		return bulletinRepository.findAll();
-
-	}
-
-	public void addNewBulletin(Bulletin bulletin) {
-
-		bulletinRepository.save(bulletin);
-	}
-
-	public Bulletin editBulletin(Integer id) {
-
-		return bulletinRepository.findById(id).get();
-	}
-
-	public void doEditBulletin(Bulletin bulletin, Integer id) {
-
-		bulletinRepository.updateBulletin(bulletin.getTitle(), bulletin.getMessage(), id);
-
-	}
-
-	public void deleteBulletinById(Integer id) {
-		bulletinRepository.deleteById(id);
-	}
+	
 
 //品項
 	public List<RamenProduct> findAllRamenProduct() {

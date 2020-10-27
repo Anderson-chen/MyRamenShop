@@ -64,58 +64,7 @@ public class AdminController {
 //
 //	}
 
-//公告
-	@GetMapping("/admin/bulletin")
-	public String bulletin(Model model) {
 
-		List<Bulletin> bulletinlist = adminService.findAllBulletin();
-		model.addAttribute("list", bulletinlist);
-
-		return "admin/adminBulletin";
-
-	}
-
-// 公告新增
-	@GetMapping("/admin/bulletinNew")
-	public String BulletinNew() {
-
-		return "admin/adminBulletinNew";
-
-	}
-
-	@PostMapping("/admin/bulletinNew")
-	public String GoBulletinNew(Bulletin bulletin) {
-
-		adminService.addNewBulletin(bulletin);
-
-		return "redirect:/admin/bulletin";
-	}
-
-//編輯公告
-	@GetMapping("/admin/bulletinNew/{id}")
-	public String EditBulletin(@PathVariable Integer id, Model model) {
-		Bulletin bulletin = adminService.editBulletin(id);
-		model.addAttribute("b", bulletin);
-
-		return "admin/adminBulletinNew";
-
-	}
-
-	@PutMapping("/admin/bulletinNew")
-	public String GoEditBulletin(Bulletin bulletin, @RequestParam Integer id) {
-
-		adminService.doEditBulletin(bulletin, id);
-
-		return "redirect:/admin/bulletin";
-
-	}
-
-//刪除公告	
-	@PostMapping("/admin/bulletinNew/{id}")
-	public String deleteBulletin(@PathVariable("id") Integer id) {
-		adminService.deleteBulletinById(id);
-		return "redirect:/admin/bulletin";
-	}
 //品項管理
 
 	@GetMapping("/admin/productList")
