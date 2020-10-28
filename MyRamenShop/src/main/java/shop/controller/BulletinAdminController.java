@@ -66,7 +66,7 @@ public class BulletinAdminController {
 		}
 
 	//刪除公告	
-		@PostMapping("/admin/bulletinNew/{id}")
+		@PostMapping("/admin/bulletinDelete/{id}")
 		public String deleteBulletin(@PathVariable("id") Integer id) {
 			bulletinAdminService.deleteBulletinById(id);
 			return "redirect:/admin/bulletin";

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import shop.entity.RamenProduct;
@@ -15,6 +16,7 @@ import shop.service.CartService;
 import shop.service.ProductService;
 
 @Controller
+@RequestMapping("/Cart")
 public class CartController {
 
 	@Autowired
@@ -47,13 +49,13 @@ public class CartController {
 	public String Delete(HttpSession session, @PathVariable int id) {
 		RamenProduct product = productService.findRamenById(id);
 		CartService.deleteProductFromCart(session, product.getId());
-		return "redirect:/goCart";
+		return "redirect:/Cart/goCart";
 	}
 
 	@GetMapping("/clearAll")
 	public String clearAll(HttpSession session) {
 		CartService.cleanCart(session);
-		return "redirect:/goCart";
+		return "redirect:/Cart/goCart";
 	}
 
 	// 更新鍵
@@ -64,7 +66,7 @@ public class CartController {
 		RamenProduct product = productService.findRamenById(id);
 		CartService.updateItem(session, product, num, sum);
 
-		return "user/userCart";
+		return "redirect:/Cart/goCart";
 	}
 
 }
