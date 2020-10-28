@@ -35,11 +35,11 @@ public class CartController {
 	// 加入購物車
 	@PostMapping("/goCart")
 	public String goCart(Integer id, int num, HttpSession session) {
-
+		
 		RamenProduct product = productService.findRamenById(id);
 		int sum = CartService.opitem(product.getPrice(), num);
 		CartService.saveProductToCart(session, product, num, sum);
-
+		
 		return "user/userCart";
 
 	}

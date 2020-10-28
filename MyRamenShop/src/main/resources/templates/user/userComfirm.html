@@ -204,8 +204,8 @@
     function refresh() {
     	
     	var  procode =  document.getElementById("procode").value;
-    	var dataJSON = {};
-    	dataJSON["procode"] = procode;
+    	var dataJSON = {"procode":procode};
+    	
         $.ajax({
             url: '/verify',
             type: 'post',
