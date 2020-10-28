@@ -51,11 +51,11 @@
             <img class="featurette-image img-fluid mx-auto" th:src="'/Ramen_pc/'+${b.PcName}" alt="Generic placeholder image" width="600" height="600">
           </div>
           
-          <form th:action="'/goCart/'+${b.id}" method="get" >                  
+          <form action="/goCart" method="post" >                  
           <label>數量</label>
          
-          <input  min=1 step=1 name="num" type="number" class="form-control" value="0" placeholder="" >
-            
+          <input  min=1 step=1  name="num" type="number" class="form-control" value="0" placeholder="" >
+            <input type="hidden"  name="id" th:value="${b.id}">
            
           <button type="submit" th:text="加入購物車" ></button>
           

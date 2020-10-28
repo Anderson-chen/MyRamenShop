@@ -74,11 +74,12 @@
 							    <th th:id="${cartitem['value'].product.id}" th:text="${cartitem['value'].sum}"></th>
 								
 								<td >
-								<form  th:action="@{/change/}+${cartitem['value'].product.id}">	
+								<form  action="/change" method="post">	
 								<button class="btn btn-sm btn-primary" th:onclick="processFormData([[${cartitem['value'].product.id}]])">更動</button>
 								<input type="hidden" th:id="${cartitem['value'].product.id}+'.total'" name="total">
 								<input type="hidden" th:id="${cartitem['value'].product.id}+'.num'" name="num">
 								<input type="hidden" th:id="${cartitem['value'].product.id}+'.sum'" name="sum">
+								<input type="hidden" th:value="${cartitem['value'].product.id}" name="id">
 								</form>
 						
 								<button th:attr="del_uri=@{'/goCartDelete/'+${cartitem['value'].product.id}}"  class="btn btn-sm btn-danger deleteBtn">刪除</button>

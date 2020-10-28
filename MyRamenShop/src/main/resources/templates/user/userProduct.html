@@ -28,8 +28,8 @@
       <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
         <div class="my-3 py-3">
           <h2 class="display-5" th:text = "豚骨拉麵" >Another headline</h2>
-       	<form action="/TastePick">
-       	  <input type="hidden" name="type" value="1"></input>
+       	<form action="/TastePick/1">
+       	  
        	  <button>
           <img th:src="@{Index/豚骨拉麵.jpg}" alt="err" style="width:600px;height:450px;">
         	</button>
@@ -40,8 +40,8 @@
       <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
         <div class="my-3 p-3">
            <h2 class="display-5" th:text = "雞白湯拉麵" >Another headline</h2>  
-           <form action="/TastePick">
-           <input type="hidden" name="type" value="2"></input>
+           <form action="/TastePick/2">
+        
        	  <button>
           <img th:src= "@{Index/雞白湯拉麵.jpg}" alt="err" style="width:600px;height:450px;">         
         	</button>

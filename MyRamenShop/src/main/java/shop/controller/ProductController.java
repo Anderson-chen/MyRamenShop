@@ -3,7 +3,7 @@ package shop.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
-import javax.websocket.server.PathParam;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,8 +32,8 @@ public class ProductController {
 		}
 
 	//點擊商品展示
-		@GetMapping("/TastePick")
-		public String show(Model model, @PathParam("type") String type
+		@GetMapping("/TastePick/{type}")
+		public String show(Model model, @PathVariable String type
 
 		) {
 
@@ -50,7 +50,7 @@ public class ProductController {
 
 		@GetMapping("/PickRamen/{id}")
 		public String show1(Model model, @PathVariable("id") Integer id) {
-
+			
 			RamenProduct ramenProduct = productService.findRamenById(id);
 
 			model.addAttribute("ALL", ramenProduct);
