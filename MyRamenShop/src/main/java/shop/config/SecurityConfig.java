@@ -49,7 +49,7 @@ public class SecurityConfig {
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
 
-			http.antMatcher("/User/**").authorizeRequests().anyRequest().hasRole("User").and().formLogin()
+			http.antMatcher("/User/**").authorizeRequests().antMatchers("/User/signup").permitAll().anyRequest().hasRole("User").and().formLogin()
 					.loginPage("/User").successForwardUrl("/User/memberCenter").permitAll().and().logout()
 					.logoutUrl("/User/logout").permitAll().logoutSuccessUrl("/User").and().csrf().disable();
 
