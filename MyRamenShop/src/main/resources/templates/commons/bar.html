@@ -171,7 +171,7 @@
 	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" id="indexbar">
       <div class="container d-flex flex-column flex-md-row justify-content-between" >
      
-        <a class="py-2 d-none d-md-inline-block" href="/" th:text="${session.loginUser!=null}?${session.loginUser}+'您好':'您好'" >商品</a>
+        <a class="py-2 d-none d-md-inline-block" style="color:red" th:text="${session.loginUser!=null}?${session.loginUser}+'您好':'您好'" >商品</a>
         <a class="py-2 d-none d-md-inline-block" href="/">商品</a>
         <a class="py-2 d-none d-md-inline-block" href="/goBulletin">公告</a>
         <a class="py-2 d-none d-md-inline-block" href="/member/memberCenter">會員中心</a>
