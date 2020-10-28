@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import shop.entity.Membership;
 import shop.entity.OrderItem;
@@ -18,6 +19,7 @@ import shop.entity.OrderItem;
 import shop.service.MemberService;
 
 @Controller
+@RequestMapping("/User")
 public class UserController {
 
 	@Autowired
@@ -33,7 +35,7 @@ public class UserController {
 	}
 
 //會員中心
-	@GetMapping("/member/memberCenter")
+	@GetMapping("/memberCenter")
 	public String center(Model model) {
 
 		List<OrderItem> orderItems = memberService.findMemberOrder();
@@ -42,7 +44,7 @@ public class UserController {
 		return "user/member/memberCenter";
 	}
 
-	@PostMapping("/member/memberCenter")
+	@PostMapping("/memberCenter")
 	public String gosucessful(Model model, HttpSession session) {
 
 		List<OrderItem> orderItems = memberService.findMemberOrder();
@@ -65,7 +67,7 @@ public class UserController {
 
 		memberService.deleteOrder(id);
 
-		return "redirect:/member/memberCenter";
+		return "redirect:/User/memberCenter";
 
 	}
 }

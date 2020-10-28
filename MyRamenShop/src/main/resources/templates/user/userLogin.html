@@ -15,7 +15,7 @@
 
 	<body class="text-center">
 	    <div th:replace="commons/bar::#indexbar"></div>
-		<form class="form-signin" th:action="@{/member}" method="post">
+		<form class="form-signin" th:action="@{/User}" method="post">
 			<img class="mb-4" src="assets/img/bootstrap-solid.svg" alt="" width="72" height="72">
 			<h1 class="h3 mb-3 font-weight-normal">登入</h1>
 			<label class="sr-only">帳號</label>
@@ -27,7 +27,7 @@
 		   		
 			
 		</form>
-		 <form class="form-signin" action="/signup" method="post">
+		 <form class="form-signin" action="/User/signup" method="post">
 		 <img class="mb-4" src="assets/img/bootstrap-solid.svg" alt="" width="72" height="72">
 			<h1 class="h3 mb-3 font-weight-normal">註冊</h1>
             <div class="row">

@@ -2,6 +2,7 @@ package shop.config;
 
 import java.util.List;
 
+import org.aspectj.weaver.ast.And;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -48,9 +49,9 @@ public class SecurityConfig {
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
 
-			http.antMatcher("/member/**").authorizeRequests().anyRequest().hasRole("member").and().formLogin()
-					.loginPage("/member").successForwardUrl("/member/memberCenter").permitAll().and().logout()
-					.logoutUrl("/member/logout").permitAll().logoutSuccessUrl("/member").and().csrf().disable();
+			http.antMatcher("/User/**").authorizeRequests().anyRequest().hasRole("User").and().formLogin()
+					.loginPage("/User").successForwardUrl("/User/memberCenter").permitAll().and().logout()
+					.logoutUrl("/User/logout").permitAll().logoutSuccessUrl("/User").and().csrf().disable();
 
 		}
 
