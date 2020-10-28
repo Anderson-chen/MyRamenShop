@@ -62,7 +62,7 @@ public class UserController {
 	}
 
 //取消訂單
-	@PostMapping("member/delete/{id}")
+	@PostMapping("/deleteOrder/{id}")
 	public String DeleteOrder(@PathVariable Integer id) {
 
 		memberService.deleteOrder(id);
