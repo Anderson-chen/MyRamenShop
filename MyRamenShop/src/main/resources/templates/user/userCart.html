@@ -93,12 +93,12 @@
 						
 						<h4 id="total" th:text = "${session.ss!=null}?'總計'+${session.ss}+'元':'0元'">0元</h4>
 						
-						<a class="btn btn-sm btn-success" href="emp" th:href="@{/}">新增產品</a>
+						<a class="btn btn-sm btn-success" href="emp" th:href="@{/product/home}">新增產品</a>
 						<a class="btn btn-sm btn-success" href="emp" th:href="@{/cart/clearAll}">清空購物車</a>	
 						
 						
 						
-						<form action="/goComfirm">
+						<form action="/finalCheck/goComfirm">
 						
 						
 							<button class="btn btn-sm btn-primary">

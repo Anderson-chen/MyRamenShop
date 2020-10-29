@@ -38,7 +38,7 @@
             <div class="container">
               <div class="carousel-caption">
                 <h1>[[${top1.title}]]</h1>                
-                <p><a class="btn btn-lg btn-primary" th:href="@{/goBulletin/}+${top1.id}" role="button">點擊詳情</a></p>
+                <p><a class="btn btn-lg btn-primary" th:href="@{/bulletin/goBulletin/}+${top1.id}" role="button">點擊詳情</a></p>
               </div>
             </div>
           </div>
@@ -47,7 +47,7 @@
             <div class="container">
               <div class="carousel-caption">
                 <h1>[[${top2.title}]]</h1>            
-                <p><a class="btn btn-lg btn-primary"th:href="@{/goBulletin/}+${top2.id}" role="button">點擊詳情</a></p>
+                <p><a class="btn btn-lg btn-primary"th:href="@{/bulletin/goBulletin/}+${top2.id}" role="button">點擊詳情</a></p>
               </div>
             </div>
           </div>
@@ -56,7 +56,7 @@
             <div class="container">
               <div class="carousel-caption">
                 <h1 >[[${top3.title}]]</h1>               
-                <p><a class="btn btn-lg btn-primary" th:href="@{/goBulletin/}+${top3.id}" role="button">點擊詳情</a></p>
+           <p><a class="btn btn-lg btn-primary" th:href="@{/bulletin/goBulletin/}+${top3.id}" role="button">點擊詳情</a></p>
               </div>
             </div>v
           </div>
@@ -106,7 +106,7 @@
 								<td></td>
 								<td th:text="${a.createTime}"></td>
 								
-								<th  ><a th:text="${a.title}" th:href="@{/goBulletin/}+${a.id}"></a></th>
+								<th  ><a th:text="${a.title}" th:href="@{/bulletin/goBulletin/}+${a.id}"></a></th>
 								
 								
 								

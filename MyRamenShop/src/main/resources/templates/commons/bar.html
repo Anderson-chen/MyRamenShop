@@ -31,7 +31,7 @@
 			
 			<ul class="navbar-nav px-3">
 				<li class="nav-item text-nowrap">
-					<a class="nav-link" href="/member/logout">登出</a>
+					<a class="nav-link" href="/user/logout">登出</a>
 				</li>
 			</ul>
 		</nav>
@@ -154,6 +154,8 @@
 									購物去
 								</a>
 							</li>
+							
+					
 	
 						
 						</ul>
@@ -173,7 +175,7 @@
      
         <a class="py-2 d-none d-md-inline-block" style="color:red" th:text="${session.loginUser!=null}?${session.loginUser}+'您好':'您好'" >商品</a>
         <a class="py-2 d-none d-md-inline-block" href="/product/home">商品</a>
-        <a class="py-2 d-none d-md-inline-block" href="/goBulletin">公告</a>
+        <a class="py-2 d-none d-md-inline-block" href="/bulletin/goBulletin">公告</a>
         <a class="py-2 d-none d-md-inline-block" href="/user/memberCenter">會員中心</a>
         <a class="py-2 d-none d-md-inline-block" href="/cart/goCart">購物車</a>       
         <a class="py-2 d-none d-md-inline-block" href="/user">會員登入</a>

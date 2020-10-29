@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -25,7 +26,7 @@ import shop.entity.RamenProduct;
 import shop.service.MemberAdminService;
 
 @Controller
-
+@RequestMapping("/admin")
 public class MemberAdminController {
 
 	@Autowired
@@ -37,7 +38,7 @@ public class MemberAdminController {
 
 
 //會員管理
-	@GetMapping("/admin/memberList")
+	@GetMapping("/memberList")
 	public String Member(Model model) {
 
 		List<Membership> list = memberAdminService.findAllMember();
@@ -46,7 +47,7 @@ public class MemberAdminController {
 		return "admin/adminMember";
 	}
 
-	@PostMapping("/admin/memberList/{id}")
+	@PostMapping("/memberList/{id}")
 	public String deletemember(@PathVariable("id") Integer id) {
 		memberAdminService.deleteMemberById(id);
 		return "redirect:/admin/memberList";

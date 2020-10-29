@@ -58,7 +58,7 @@
 
         </div>
         
-<form action = "/member/giveOrder" method = "post">
+<form action = "/finalCheck/giveOrder" method = "post">
           
             
               <input th:each="cartitem:${session.cart}" type="hidden" name="orderlist" th:value="${cartitem['value'].product.title}+':'+${cartitem['value'].num}">                       
@@ -207,7 +207,7 @@
     	var dataJSON = {"procode":procode};
     	
         $.ajax({
-            url: '/verify',
+            url: '/finalCheck/verify',
             type: 'post',
             dataType: 'json',
             contentType: "application/json;charset=utf-8",
