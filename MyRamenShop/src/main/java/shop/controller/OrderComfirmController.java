@@ -40,7 +40,7 @@ public class OrderComfirmController {
 
 		}
 
-		return "user/userLogin";
+		return "redirect:/user";
 
 	}
 

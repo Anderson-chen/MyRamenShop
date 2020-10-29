@@ -58,7 +58,7 @@
 
         </div>
         
-<form action = "/finalCheck/giveOrder" method = "post">
+<form onsubmit="info()"action = "/finalCheck/giveOrder" method = "post">
           
             
               <input th:each="cartitem:${session.cart}" type="hidden" name="orderlist" th:value="${cartitem['value'].product.title}+':'+${cartitem['value'].num}">                       
@@ -143,7 +143,7 @@
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="cc-name">Name on card</label>
-                <input type="text" class="form-control" name="ownname" id="cc-name" placeholder="" required>
+                <input type="text" class="form-control" oninput="value=value.replace(/[^\d]/g,'')" name="ownname" id="cc-name" placeholder="" required>
                 <small class="text-muted">Full name as displayed on card</small>
                 <div class="invalid-feedback">
                   Name on card is required
@@ -168,14 +168,14 @@
               </div>
               <div class="col-md-3 mb-3">
                 <label for="cc-expiration">CVV</label>
-                <input type="text" class="form-control" name="cvv" id="cc-cvv" placeholder="" required>
+                <input type="text" class="form-control" oninput="value=value.replace(/[^\d]/g,'')" name="cvv" id="cc-cvv" placeholder="" required>
                 <div class="invalid-feedback">
                   Security code required
                 </div>
               </div>
             </div>
             <hr class="mb-4">
-            <button onclick="info()" class="btn btn-primary btn-lg btn-block" type="submit">付款</button>
+            <button  class="btn btn-primary btn-lg btn-block" type="submit">付款</button>
           
         </div>
       </div>
@@ -256,9 +256,7 @@
 function info(){
 
 	
-	
-
-	
+		
 	alert("訂購成功!");
 }
 </script>
