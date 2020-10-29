@@ -10,17 +10,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import shop.entity.RamenProduct;
 import shop.service.ProductService;
 @Controller
+@RequestMapping("/product")
 public class ProductController {
 	
 	@Autowired
 	ProductService productService;
 	
 	//首頁
-		@GetMapping("/")
+		@GetMapping("/home")
 		public String index(HttpSession session) {
 			if (session.getAttribute("loginUser") != null) {
 				return "user/userProduct";

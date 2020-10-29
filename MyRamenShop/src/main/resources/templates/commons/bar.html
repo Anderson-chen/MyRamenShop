@@ -131,7 +131,7 @@
 							<li class="nav-item">
 								<a class="nav-link active" href="#"
 								th:class="${activeUri=='orderlist'?'nav-link active':'nav-link'}"
-								  th:href="@{/User/memberCenter}">
+								  th:href="@{/user/memberCenter}">
 									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users">
 										<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
 										<circle cx="9" cy="7" r="4"></circle>
@@ -145,7 +145,7 @@
 							<li class="nav-item">
 								<a class="nav-link active" href="#" 
 								 th:class="${activeUri=='productList'?'nav-link active':'nav-link'}"
-								  th:href="@{/}">
+								  th:href="@{/product/home}">
 									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart">
 										<circle cx="9" cy="21" r="1"></circle>
 										<circle cx="20" cy="21" r="1"></circle>
@@ -172,12 +172,12 @@
       <div class="container d-flex flex-column flex-md-row justify-content-between" >
      
         <a class="py-2 d-none d-md-inline-block" style="color:red" th:text="${session.loginUser!=null}?${session.loginUser}+'您好':'您好'" >商品</a>
-        <a class="py-2 d-none d-md-inline-block" href="/">商品</a>
+        <a class="py-2 d-none d-md-inline-block" href="/product/home">商品</a>
         <a class="py-2 d-none d-md-inline-block" href="/goBulletin">公告</a>
-        <a class="py-2 d-none d-md-inline-block" href="/User/memberCenter">會員中心</a>
-        <a class="py-2 d-none d-md-inline-block" href="/Cart/goCart">購物車</a>       
-        <a class="py-2 d-none d-md-inline-block" href="/User">會員登入</a>
-         <a class="py-2 d-none d-md-inline-block" href="/User/logout">登出</a>
+        <a class="py-2 d-none d-md-inline-block" href="/user/memberCenter">會員中心</a>
+        <a class="py-2 d-none d-md-inline-block" href="/cart/goCart">購物車</a>       
+        <a class="py-2 d-none d-md-inline-block" href="/user">會員登入</a>
+         <a class="py-2 d-none d-md-inline-block" href="/user/logout">登出</a>
       </div>
     </nav>
 				

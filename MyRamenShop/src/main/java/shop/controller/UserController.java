@@ -19,7 +19,7 @@ import shop.entity.OrderItem;
 import shop.service.MemberService;
 
 @Controller
-@RequestMapping("/User")
+@RequestMapping("/user")
 public class UserController {
 
 	@Autowired
@@ -31,7 +31,7 @@ public class UserController {
 
 		memberService.saveMemberData(membership);
 
-		return "redirect:/";
+		return "redirect:/user";
 	}
 
 //會員中心
@@ -67,7 +67,7 @@ public class UserController {
 
 		memberService.deleteOrder(id);
 
-		return "redirect:/User/memberCenter";
+		return "redirect:/user/memberCenter";
 
 	}
 }

@@ -47,7 +47,7 @@
           
             <h2 th:text="${a.title}">Heading</h2>
             <p th:text="${a.price}"></p>
-            <a class="btn btn-secondary" th:href="'/PickRamen/'+${a.id}" role="button">購買 &raquo;</a>
+            <a class="btn btn-secondary" th:href="'/product/PickRamen/'+${a.id}" role="button">購買 &raquo;</a>
           </div><!-- /.col-lg-4 -->
          
        
@@ -62,7 +62,7 @@
           <div class="col-md-7" >
             <h2 class="featurette-heading" th:text="${b.title}"></h2>
             <p class="lead" th:text="${b.price} + '元'" ></p>
-             <a class="btn btn-secondary" th:href="'/PickRamen/'+${b.id}" role="button">購買 &raquo;</a>
+             <a class="btn btn-secondary" th:href="'/product/PickRamen/'+${b.id}" role="button">購買 &raquo;</a>
           </div>
           <div class="col-md-5">
             <img class="featurette-image img-fluid mx-auto" th:src="'/Ramen_pc/'+${b.PcName}" alt="Generic placeholder image" width="1200" height="1200">

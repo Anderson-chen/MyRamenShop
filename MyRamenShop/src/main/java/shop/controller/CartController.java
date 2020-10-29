@@ -16,7 +16,7 @@ import shop.service.CartService;
 import shop.service.ProductService;
 
 @Controller
-@RequestMapping("/Cart")
+@RequestMapping("/cart")
 public class CartController {
 
 	@Autowired
@@ -49,13 +49,13 @@ public class CartController {
 	public String Delete(HttpSession session, @PathVariable int id) {
 		RamenProduct product = productService.findRamenById(id);
 		CartService.deleteProductFromCart(session, product.getId());
-		return "redirect:/Cart/goCart";
+		return "redirect:/cart/goCart";
 	}
 
 	@GetMapping("/clearAll")
 	public String clearAll(HttpSession session) {
 		CartService.cleanCart(session);
-		return "redirect:/Cart/goCart";
+		return "redirect:/cart/goCart";
 	}
 
 	// 更新鍵
@@ -66,7 +66,7 @@ public class CartController {
 		RamenProduct product = productService.findRamenById(id);
 		CartService.updateItem(session, product, num, sum);
 
-		return "redirect:/Cart/goCart";
+		return "redirect:/cart/goCart";
 	}
 
 }

@@ -74,7 +74,7 @@
 							    <th th:id="${cartitem['value'].product.id}" th:text="${cartitem['value'].sum}"></th>
 								
 								<td >
-								<form  action="/Cart/change" method="post">	
+								<form  action="/cart/change" method="post">	
 								<button class="btn btn-sm btn-primary" th:onclick="processFormData([[${cartitem['value'].product.id}]])">更動</button>
 								<input type="hidden" th:id="${cartitem['value'].product.id}+'.total'" name="total">
 								<input type="hidden" th:id="${cartitem['value'].product.id}+'.num'" name="num">
@@ -82,7 +82,7 @@
 								<input type="hidden" th:value="${cartitem['value'].product.id}" name="id">
 								</form>
 						
-								<button th:attr="del_uri=@{'/Cart/goCartDelete/'+${cartitem['value'].product.id}}"  class="btn btn-sm btn-danger deleteBtn">刪除</button>
+								<button th:attr="del_uri=@{'/cart/goCartDelete/'+${cartitem['value'].product.id}}"  class="btn btn-sm btn-danger deleteBtn">刪除</button>
 								</td>
 								</tr>
 								</tbody>
@@ -94,7 +94,7 @@
 						<h4 id="total" th:text = "${session.ss!=null}?'總計'+${session.ss}+'元':'0元'">0元</h4>
 						
 						<a class="btn btn-sm btn-success" href="emp" th:href="@{/}">新增產品</a>
-						<a class="btn btn-sm btn-success" href="emp" th:href="@{/Cart/clearAll}">清空購物車</a>	
+						<a class="btn btn-sm btn-success" href="emp" th:href="@{/cart/clearAll}">清空購物車</a>	
 						
 						
 						

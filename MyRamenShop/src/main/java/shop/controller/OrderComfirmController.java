@@ -47,7 +47,7 @@ public class OrderComfirmController {
 
 		orderComfirmService.giveOrder(orderItem);
 		cartService.cleanCart(session);
-		return "redirect:/";
+		return "redirect:/product/home";
 	}
 
 	@PostMapping("/verify")
