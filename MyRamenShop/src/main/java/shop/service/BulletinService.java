@@ -32,7 +32,7 @@ public class BulletinService {
 
 	public List<Bulletin> findNews() {
 
-		return bulletinRepository.findAll();
+		return bulletinRepository.news();
 	}
 
 	public Bulletin findNewById(Integer id) {
