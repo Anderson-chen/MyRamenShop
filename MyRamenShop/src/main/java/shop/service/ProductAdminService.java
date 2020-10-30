@@ -60,7 +60,7 @@ public class ProductAdminService {
 	public void updateProduct(RamenProduct ramenProduct, Integer id) {
 
 		ramenProductRepository.updateRamen(ramenProduct.getTitle(), ramenProduct.getPrice(), ramenProduct.getType(),
-				id);
+				ramenProduct.getPcName(), id);
 
 	}
 

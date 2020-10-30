@@ -91,7 +91,7 @@
                 <div class="form-group">
                     <label>價格</label>
                     <input  name="price" type="number" class="form-control" placeholder="" th:value="${DP.price}">
-                     <input  name="pcName" type="hidden" th:value="${fileName}">
+                     <input  name="PcName" type="hidden" th:value="${change==null}?${DP.PcName}:${fileName}">
                 </div>
              
          

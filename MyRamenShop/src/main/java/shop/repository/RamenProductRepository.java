@@ -24,9 +24,9 @@ public interface RamenProductRepository extends JpaRepository<RamenProduct, Inte
 	@Modifying
 	public void updateOne(int cnt, int id);
 
-	@Query(value = "update ramen_product set ramen_title=?1 ,ramen_price=?2 ,type=?3 where id=?4 ", nativeQuery = true)
+	@Query(value = "update ramen_product set ramen_title=?1 ,ramen_price=?2 ,type=?3 ,pc_name=?4 where id=?5 ", nativeQuery = true)
 	@Modifying
-	public void updateRamen(String name, int price,String type, int id);
+	public void updateRamen(String name, int price,String type,String PcName, int id);
 
 	@Query(value = "update ramen_product set sales=?1 where ramen_title=?2 ", nativeQuery = true)
 	@Modifying
