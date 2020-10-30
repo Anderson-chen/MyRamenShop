@@ -20,15 +20,15 @@ public interface RamenProductRepository extends JpaRepository<RamenProduct, Inte
 //			+ "limit 0, 2", nativeQuery = true)
 //	List<DisplayProduct> bestprice();
 
-	@Query(value = "update ramen_product set sales=?1 where id=?2 ", nativeQuery = true)
+	@Query(value = "update ramen_product set sales=?1 create_time=CURRENT_TIMESTAMP where id=?2 ", nativeQuery = true)
 	@Modifying
 	public void updateOne(int cnt, int id);
 
-	@Query(value = "update ramen_product set ramen_title=?1 ,ramen_price=?2 ,type=?3 ,pc_name=?4 where id=?5 ", nativeQuery = true)
+	@Query(value = "update ramen_product set ramen_title=?1 ,ramen_price=?2 ,type=?3 ,pc_name=?4 ,create_time=CURRENT_TIMESTAMP where id=?5 ", nativeQuery = true)
 	@Modifying
 	public void updateRamen(String name, int price,String type,String PcName, int id);
 
-	@Query(value = "update ramen_product set sales=?1 where ramen_title=?2 ", nativeQuery = true)
+	@Query(value = "update ramen_product set sales=?1 create_time=CURRENT_TIMESTAMP where ramen_title=?2 ", nativeQuery = true)
 	@Modifying
 	public void updateOneByName(int cnt, String title);
 

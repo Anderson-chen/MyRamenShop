@@ -12,7 +12,7 @@ import shop.entity.Bulletin;
 
 @Transactional
 public interface BulletinRepository extends JpaRepository<Bulletin, Integer> {
-	@Query(value = "update display_product set title=?1 ,message=?2 where id=?3 ", nativeQuery = true)
+	@Query(value = "update display_product set title=?1 ,message=?2 create_time=CURRENT_TIMESTAMP where id=?3 ", nativeQuery = true)
 	@Modifying
 	public void updateBulletin(String title, String message, int id);
 
