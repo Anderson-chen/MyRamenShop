@@ -51,6 +51,21 @@
 				<div th:replace="commons/bar::#sidebar(activeUri='productList')"></div>
 
 				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+				
+				
+				<form action="/admin/uploadImage" method="post"  enctype="multipart/form-data">
+             <div  class="form-group">
+               	<label>上傳圖片</label> 
+			 	<input type="file"  name="file" required/> 
+			 	<button>上傳</button> 
+			</div>
+		  		<img class="featurette-image img-fluid mx-auto" th:src="${src}" alt="upload image" width="600" height="600">
+                
+             
+				</form>
+				
+				
+				
 			<form th:action="@{/admin/productNew}" method="post" enctype="multipart/form-data">
 			
 				 <div class="form-group">
@@ -75,14 +90,7 @@
                     <label>價格</label>
                     <input  name="price" type="number" class="form-control" placeholder="" >
                 </div>
-             
-                <div   class="form-group">
-                <label>上傳圖片</label> 
-			 <input type="file" name="file" required/> 
-				</div>
-		
-                
-                
+            		<input type="hidden" name="pcName" th:value="${fileName}">
                 
                 
                 <button type="submit" class="btn btn-primary" th:text="添加">添加</button>
@@ -130,7 +138,7 @@
 		<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js"></script>
 		<script type="text/javascript" src="asserts/js/popper.min.js"></script>
 		<script type="text/javascript" src="asserts/js/bootstrap.min.js"></script>
-
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>	
 		<!-- Icons -->
 		<script type="text/javascript" src="asserts/js/feather.min.js"></script>
 		<script>
@@ -140,35 +148,36 @@
 		<!-- Graphs -->
 		<script type="text/javascript" src="asserts/js/Chart.min.js"></script>
 		<script>
-			var ctx = document.getElementById("myChart");
-			var myChart = new Chart(ctx, {
-				type: 'line',
-				data: {
-					labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-					datasets: [{
-						data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
-						lineTension: 0,
-						backgroundColor: 'transparent',
-						borderColor: '#007bff',
-						borderWidth: 4,
-						pointBackgroundColor: '#007bff'
-					}]
-				},
-				options: {
-					scales: {
-						yAxes: [{
-							ticks: {
-								beginAtZero: false
-							}
-						}]
-					},
-					legend: {
-						display: false,
-					}
-				}
-			});
+			upload(){
+				
+				
+			}
 		</script>
-
+ <script type = "text/javascript" th:inline="javascript">
+ 
+   
+    function upload() {
+    	
+    	var  file =  document.getElementById("file").value;
+    	alert(file);
+    	
+        $.ajax({
+            url: 'admin/uploadImage',
+            type: 'post',
+            dataType: 'String',
+            contentType: "application/text;charset=utf-8",
+            data: "file"=file,
+            cache: false,
+            async: true,
+            success: function (data) {
+            	document.getElementById("PcName").value =   data                   
+             
+            }
+        });
+    }
+    
+    
+    </script>
 	</body>
 
 </html>

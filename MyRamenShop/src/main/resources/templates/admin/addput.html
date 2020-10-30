@@ -51,6 +51,19 @@
 				<div th:replace="commons/bar::#sidebar(activeUri='productList')"></div>
 
 				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+				
+				
+							<form th:action="'/admin/EditImage/'+${DP.id}" method="post"  enctype="multipart/form-data">
+             <div  class="form-group">
+               	<label>圖片</label> 
+			 	<input type="file"  name="file" required/> 
+			 	<button>更改圖片</button> 
+			</div>
+		  		<img class="featurette-image img-fluid mx-auto" th:src="${change==null}?'/Ramen_pc/'+${DP.PcName}:${src}" alt="upload image" width="600" height="600">
+              
+             
+				</form>
+				
 			<form th:action="@{/admin/put}" method="post" >				
 				<input type="hidden" name="id"  th:value="${DP.id}"/>
 			
@@ -78,6 +91,7 @@
                 <div class="form-group">
                     <label>價格</label>
                     <input  name="price" type="number" class="form-control" placeholder="" th:value="${DP.price}">
+                     <input  name="pcName" type="hidden" th:value="${fileName}">
                 </div>
              
          

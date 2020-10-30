@@ -39,13 +39,21 @@ public class ProductAdminController {
 			return "admin/add";
 		}
 
-		@PostMapping("/productNew")
-		public String doNEW(RamenProduct ramenProduct, @RequestParam("file") MultipartFile file, Model model) {
+		@PostMapping("/uploadImage")
+		public String uploadImage(@RequestParam("file") MultipartFile file, Model model) {
 
-			String fileName = productAdminService.addNewProduct(ramenProduct, file);
+			String fileName = productAdminService.uploadimage(file);
 			String filename = "/Ramen_pc/" + fileName;
-			model.addAttribute("filename", filename);
-
+			model.addAttribute("src", filename);
+			model.addAttribute("fileName", fileName);
+			
+		
+			return "admin/add";
+		}
+		
+		@PostMapping("/productNew")
+		public String productNew(RamenProduct ramenProduct) {
+			productAdminService.addNewProduct(ramenProduct);
 			return "redirect:/admin/productList";
 		}
 
@@ -56,7 +64,7 @@ public class ProductAdminController {
 			model.addAttribute("DP", ramenproduct);
 			return "admin/addput";
 		}
-
+		
 	//更新
 		@PostMapping("/put")
 		public String update(@RequestParam Integer id, RamenProduct ramenProduct) {
@@ -65,12 +73,23 @@ public class ProductAdminController {
 
 			return "redirect:/admin/productList";
 		}
+		@PostMapping("/EditImage/{id}")
+		public String EditImage(@RequestParam("file") MultipartFile file, Model model,@PathVariable Integer id) {
 
+			String fileName = productAdminService.uploadimage(file);
+			String filename = "/Ramen_pc/" + fileName;
+			model.addAttribute("src", filename);
+			model.addAttribute("fileName", fileName);
+			model.addAttribute("change","change");
+			RamenProduct ramenproduct = productAdminService.editProduct(id);
+			model.addAttribute("DP", ramenproduct);
+			return "admin/addput";
+		}
 		@PostMapping("/productDelete/{id}")
 		public String delete(@PathVariable("id") Integer id) {
 			productAdminService.deleteProductById(id);
 			return "redirect:/admin/productList";
 		}
-
+			
 
 }
