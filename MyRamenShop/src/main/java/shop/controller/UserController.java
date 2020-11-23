@@ -36,9 +36,10 @@ public class UserController {
 				return "user/userLogin";
 
 			}
-
+			
 		}
-
+		model.addAttribute("used", "註冊成功");
+		
 		memberService.saveMemberData(membership);
 		return "user/userLogin";
 	}
