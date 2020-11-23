@@ -17,7 +17,7 @@
 
 安全認證:Spring Security
 
-資料庫連接:jpa+mysql
+資料庫連接:spring data+mysql
 
 前端優化功能:javascript+ajax
 
