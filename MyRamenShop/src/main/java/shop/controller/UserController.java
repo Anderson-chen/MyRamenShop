@@ -27,11 +27,20 @@ public class UserController {
 
 //註冊
 	@PostMapping("/signup")
-	public String postData(Membership membership) {
+	public String signup(Membership membership, Model model) {
+
+		for (int i = 0; i < memberService.getSize(); i++) {
+			if (membership.getUsername().equals(memberService.findAllUserName().get(i))) {
+
+				model.addAttribute("used", "名稱已使用");
+				return "user/userLogin";
+
+			}
+
+		}
 
 		memberService.saveMemberData(membership);
-
-		return "redirect:/user";
+		return "user/userLogin";
 	}
 
 //會員中心

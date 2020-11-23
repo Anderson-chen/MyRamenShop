@@ -21,6 +21,15 @@ public class MemberService {
 	@Autowired
 	OrderRepository orderRepository;
 
+	public List<String> findAllUserName() {
+		
+		return userRepository.findAllusername();
+	}
+	public int getSize() {
+		
+		return userRepository.findAll().size();
+	}
+	
 	public void saveMemberData(Membership membership) {
 
 		userRepository.save(membership);

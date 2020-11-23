@@ -16,7 +16,7 @@
 	<body class="text-center">
 	    <div th:replace="commons/bar::#indexbar"></div>
 		<form class="form-signin" th:action="@{/user}" method="post">
-			<img class="mb-4" src="assets/img/bootstrap-solid.svg" alt="" width="72" height="72">
+			<img class="mb-4" src="/assets/img/bootstrap-solid.svg" alt="" width="72" height="72">
 			<h1 class="h3 mb-3 font-weight-normal">登入</h1>
 			<label class="sr-only">帳號</label>
 			<input type="text" id="username" name="username"class="form-control" placeholder="帳號" required="" autofocus="">
@@ -28,7 +28,7 @@
 			
 		</form>
 		 <form  onsubmit="info()" class ="form-signin" action="/user/signup" method="post">
-		 <img class="mb-4" src="assets/img/bootstrap-solid.svg" alt="" width="72" height="72">
+		 <img class="mb-4" src="/assets/img/bootstrap-solid.svg" alt="" width="72" height="72">
 			<h1 class="h3 mb-3 font-weight-normal">註冊</h1>
             <div class="row">
               <div class="col-md-6 mb-3">
@@ -90,7 +90,7 @@
             </div>
 
            
-            
+              <p style = " color : red " th:text="${used}" ></p>
             <button class="btn btn-primary btn-lg btn-block" type="submit">註冊</button>
           </form>
 	   
@@ -100,7 +100,8 @@ function info(){
 
 	
 		
-	alert("註冊成功!");
+		alert("註冊成功!");
+		
 }
 </script>
 		
