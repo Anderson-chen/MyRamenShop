@@ -27,5 +27,7 @@ public interface BulletinRepository extends JpaRepository<Bulletin, Integer> {
 	
 	@Query(value = "select * from bulletin order by id desc  ", nativeQuery = true)
 	public List<Bulletin> news();
+	
+	
 
 }

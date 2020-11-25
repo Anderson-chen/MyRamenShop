@@ -49,7 +49,7 @@ public class UserController {
 	public String center(Model model) {
 
 		List<OrderItem> orderItems = memberService.findMemberOrder();
-
+		model.addAttribute("err", "帳密錯誤");
 		model.addAttribute("orderList", orderItems);
 		return "user/member/memberCenter";
 	}
@@ -58,7 +58,7 @@ public class UserController {
 	public String gosucessful(Model model, HttpSession session) {
 
 		List<OrderItem> orderItems = memberService.findMemberOrder();
-
+	
 		model.addAttribute("orderList", orderItems);
 //登入後名稱與資料加入session		
 

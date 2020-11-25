@@ -30,8 +30,10 @@ public class BulletinAdminService {
 	}
 
 	public void doEditBulletin(Bulletin bulletin, Integer id) {
-
-		bulletinRepository.updateBulletin(bulletin.getTitle(), bulletin.getMessage(), id);
+		bulletin.setId(id);
+		
+		bulletinRepository.save(bulletin);
+		//bulletinRepository.updateBulletin(bulletin.getTitle(), bulletin.getMessage(), id);
 
 	}
 
