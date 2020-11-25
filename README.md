@@ -23,4 +23,4 @@
 
 美化:bootstrap 
 
-![image] (https://github.com/Anderson-chen/MyRamenShop/blob/develop/images/home.png)
+![image](https://github.com/Anderson-chen/MyRamenShop/blob/develop/images/home.png)
