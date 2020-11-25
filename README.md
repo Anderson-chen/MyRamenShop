@@ -21,4 +21,6 @@
 
 前端優化功能:javascript+ajax
 
-美化:bootstrap
+美化:bootstrap 
+
+![image] (https://github.com/Anderson-chen/MyRamenShop/blob/develop/images/home.png)
