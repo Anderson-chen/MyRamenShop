@@ -49,3 +49,7 @@
 
 ![image](https://github.com/Anderson-chen/MyRamenShop/blob/develop/images/orderseller.jpg)
 
+
+**新增商品**
+
+![image](https://github.com/Anderson-chen/MyRamenShop/blob/develop/images/newRamen.jpg)
