@@ -25,4 +25,27 @@
 
 【作品圖片】
 
+**主頁展示**
+
 ![image](https://github.com/Anderson-chen/MyRamenShop/blob/develop/images/home.png)
+
+**點擊商品**
+
+![image](https://github.com/Anderson-chen/MyRamenShop/blob/develop/images/ProductPage.jpg)
+
+**購物車**
+
+![image](https://github.com/Anderson-chen/MyRamenShop/blob/develop/images/Cart.jpg)
+
+**購買確認**
+
+![image](https://github.com/Anderson-chen/MyRamenShop/blob/develop/images/comfirm.jpg)
+
+**後臺管理訂單**
+
+![image](https://github.com/Anderson-chen/MyRamenShop/blob/develop/images/adminOrder.jpg)
+
+**商品管理**
+
+![image](https://github.com/Anderson-chen/MyRamenShop/blob/develop/images/orderseller.jpg)
+
