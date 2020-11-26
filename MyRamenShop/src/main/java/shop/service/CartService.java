@@ -13,7 +13,7 @@ import shop.entity.RamenProduct;
 @Service
 public class CartService {
 
-	public static synchronized void saveProductToCart(HttpSession session, RamenProduct product, Integer num,
+	public  synchronized void saveProductToCart(HttpSession session, RamenProduct product, Integer num,
 			Integer sum) {
 		Map<Integer, CartItem> cartItemMap = (HashMap<Integer, CartItem>) session.getAttribute("cart");
 
@@ -45,7 +45,7 @@ public class CartService {
 
 	}
 
-	public static synchronized void updateItem(HttpSession session, RamenProduct product, Integer num, Integer sum) {
+	public  synchronized void updateItem(HttpSession session, RamenProduct product, Integer num, Integer sum) {
 		Map<Integer, CartItem> cartItemMap = (HashMap<Integer, CartItem>) session.getAttribute("cart");
 
 		CartItem currentCi = cartItemMap.get(product.getId());
@@ -60,12 +60,12 @@ public class CartService {
 
 	}
 
-	public static synchronized int opitem(int price, int count) {
+	public  synchronized int opitem(int price, int count) {
 		int Result = price * count;
 		return Result;
 	}
 
-	public static synchronized void deleteProductFromCart(HttpSession session, Integer productId) {
+	public  synchronized void deleteProductFromCart(HttpSession session, Integer productId) {
 		Map<Integer, CartItem> cartItemMap = (HashMap<Integer, CartItem>) session.getAttribute("cart");
 
 		if (session.getAttribute("ss") != null) {
@@ -81,7 +81,7 @@ public class CartService {
 
 	}
 
-	public static synchronized void cleanCart(HttpSession session) {
+	public  synchronized void cleanCart(HttpSession session) {
 		Map<Integer, CartItem> cartItemMap = (HashMap<Integer, CartItem>) session.getAttribute("cart");
 
 		if (session.getAttribute("ss") != null) {

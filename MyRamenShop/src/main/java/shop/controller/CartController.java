@@ -21,7 +21,8 @@ public class CartController {
 
 	@Autowired
 	ProductService productService;
-	CartService CartService;
+	@Autowired
+	CartService cartService;
 
 	// 進入購物車頁面
 
@@ -37,8 +38,8 @@ public class CartController {
 	public String goCart(Integer id, int num, HttpSession session) {
 		
 		RamenProduct product = productService.findRamenById(id);
-		int sum = CartService.opitem(product.getPrice(), num);
-		CartService.saveProductToCart(session, product, num, sum);
+		int sum = cartService.opitem(product.getPrice(), num);
+		cartService.saveProductToCart(session, product, num, sum);
 		
 		return "user/userCart";
 
@@ -48,13 +49,13 @@ public class CartController {
 	@PostMapping("/goCartDelete/{id}")
 	public String Delete(HttpSession session, @PathVariable int id) {
 		RamenProduct product = productService.findRamenById(id);
-		CartService.deleteProductFromCart(session, product.getId());
+		cartService.deleteProductFromCart(session, product.getId());
 		return "redirect:/cart/goCart";
 	}
 
 	@GetMapping("/clearAll")
 	public String clearAll(HttpSession session) {
-		CartService.cleanCart(session);
+		cartService.cleanCart(session);
 		return "redirect:/cart/goCart";
 	}
 
@@ -64,7 +65,7 @@ public class CartController {
 	public String updateItem(HttpSession session, Integer total, Integer sum, Integer num, Integer id) {
 
 		RamenProduct product = productService.findRamenById(id);
-		CartService.updateItem(session, product, num, sum);
+		cartService.updateItem(session, product, num, sum);
 
 		return "redirect:/cart/goCart";
 	}
