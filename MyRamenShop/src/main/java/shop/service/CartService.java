@@ -20,7 +20,7 @@ public class CartService {
 		if (cartItemMap == null) {
 			cartItemMap = new HashMap<Integer, CartItem>();
 		}
-		
+		// 判断当前购物车中是否包含此商品
 		if (cartItemMap.containsKey(product.getId())) {
 			CartItem currentCi = cartItemMap.get(product.getId());
 
