@@ -45,7 +45,7 @@
         <div class="row featurette" th:each="b:${ALL}">
           <div class="col-md-7" >
             <h2 class="featurette-heading" th:text="${b.title}"></h2>
-            <p class="lead" th:text="${b.price}+'元'" ></p>
+            <p class="lead" th:text="${b.price}" ></p>
           </div>
           <div class="col-md-5">
             <img class="featurette-image img-fluid mx-auto" th:src="'/Ramen_pc/'+${b.PcName}" alt="Generic placeholder image" width="600" height="600">

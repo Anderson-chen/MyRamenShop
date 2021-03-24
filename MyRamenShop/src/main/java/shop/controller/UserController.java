@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
@@ -37,7 +36,7 @@ public class UserController {
 				return "user/userLogin";
 
 			}
-
+			
 		}
 		model.addAttribute("used", "註冊成功");
 		
