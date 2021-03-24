@@ -46,7 +46,7 @@
             <img class="rounded-circle" th:src="'/Ramen_pc/'+${a.PcName}" alt="Generic placeholder image" width="350" height="350">
           
             <h2 th:text="${a.title}">Heading</h2>
-            <p th:text="${a.price}"></p>
+            <p th:text="${a.price}+'元'"></p>
             <a class="btn btn-secondary" th:href="'/product/PickRamen/'+${a.id}" role="button">購買 &raquo;</a>
           </div><!-- /.col-lg-4 -->
          
