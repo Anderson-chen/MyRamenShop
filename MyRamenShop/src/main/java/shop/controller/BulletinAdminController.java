@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import shop.entity.Bulletin;
 import shop.service.BulletinAdminService;
-
+//
 @Controller
 @RequestMapping("/admin")
 public class BulletinAdminController {
